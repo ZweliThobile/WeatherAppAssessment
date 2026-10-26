@@ -6,6 +6,10 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		59D4BCA33084F3F00073328F /* simplified-weather-app-assets 2 in Resources */ = {isa = PBXBuildFile; fileRef = 59D4BCA23084F3F00073328F /* simplified-weather-app-assets 2 */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		59D4BC883084F0340073328F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		59D4BC7A3084F0320073328F /* WeatherAppAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherAppAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D4BC873084F0340073328F /* WeatherAppAssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppAssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D4BC913084F0340073328F /* WeatherAppAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D4BCA23084F3F00073328F /* simplified-weather-app-assets 2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "simplified-weather-app-assets 2"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -69,6 +74,7 @@
 		59D4BC713084F0320073328F = {
 			isa = PBXGroup;
 			children = (
+				59D4BCA23084F3F00073328F /* simplified-weather-app-assets 2 */,
 				59D4BC7C3084F0320073328F /* WeatherAppAssessment */,
 				59D4BC8A3084F0340073328F /* WeatherAppAssessmentTests */,
 				59D4BC943084F0340073328F /* WeatherAppAssessmentUITests */,
@@ -197,6 +203,7 @@
 		59D4BC783084F0320073328F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				59D4BCA33084F3F00073328F /* simplified-weather-app-assets 2 in Resources */,
 			);
 		};
 		59D4BC853084F0340073328F /* Resources */ = {
@@ -296,7 +303,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -354,7 +361,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
