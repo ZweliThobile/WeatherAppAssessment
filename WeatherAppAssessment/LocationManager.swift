@@ -22,6 +22,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func requestCurrentLocation(){
+        message = ""
         
         switch manager.authorizationStatus{
         case .notDetermined:
@@ -30,6 +31,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
             fetchLocation()
         case .denied, .restricted:
             isLocating = false
+            message = ""
         @unknown default:
             isLocating = false
         }

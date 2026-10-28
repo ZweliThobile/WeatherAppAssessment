@@ -34,9 +34,34 @@
 		59D4BCA23084F3F00073328F /* simplified-weather-app-assets 2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "simplified-weather-app-assets 2"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5967F3513091F219002F241C /* Exceptions for "WeatherAppAssessment" folder in "WeatherAppAssessment" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+				Secrets.plist,
+			);
+			target = 59D4BC793084F0320073328F /* WeatherAppAssessment */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		5967F3523091F219002F241C /* Exceptions for "WeatherAppAssessment" folder in "Compile Sources" phase from "WeatherAppAssessment" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 59D4BC763084F0320073328F /* Sources */;
+			membershipExceptions = (
+				Secrets.plist,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		59D4BC7C3084F0320073328F /* WeatherAppAssessment */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5967F3513091F219002F241C /* Exceptions for "WeatherAppAssessment" folder in "WeatherAppAssessment" target */,
+				5967F3523091F219002F241C /* Exceptions for "WeatherAppAssessment" folder in "Compile Sources" phase from "WeatherAppAssessment" target */,
+			);
 			path = WeatherAppAssessment;
 			sourceTree = "<group>";
 		};
@@ -381,6 +406,9 @@
 				DEVELOPMENT_TEAM = JK43UPFJ84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherAppAssessment/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -413,6 +441,9 @@
 				DEVELOPMENT_TEAM = JK43UPFJ84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherAppAssessment/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
