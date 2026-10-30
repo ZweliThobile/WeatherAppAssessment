@@ -8,34 +8,49 @@
 import Foundation
 import Observation
 
+struct ForecastResult {
+    let cityName: String
+    let days: [DailyForecast]
+    let unitSymbol: String
+    let backgroundImage: String
+}
+
+protocol ForecastProvider {
+    func forecast(
+        latitude: Double,
+        longitude: Double
+    ) async throws -> ForecastResult
+}
+
 @Observable
 final class ForecastLoader {
+    
+    private let service: any ForecastProvider
+    
     private(set) var days: [DailyForecast] = []
     private(set) var cityName = ""
     private(set) var unitSymbol = "°C"
     private(set) var isLoading = false
     private(set) var errorMessage: String?
-    private(set) var backgroundImage = "sunnyBackground"
+    private(set) var backgroundImage = "Sunny"
+    
+    init(service: any ForecastProvider) {
+        self.service = service
+    }
 
     func load(latitude: Double, longitude: Double) async {
         isLoading = true
         errorMessage = nil
         defer { isLoading = false }
 
-        guard let apiKey = OpenWeatherAPIKey.current else {
-            days = []
-            cityName = ""
-            errorMessage = "Invlaid API Key."
-            return
-        }
-
         do {
-            let forecast = try await OpenWeatherClient.forecast(
+            let forecast = try await service.forecast(
                 latitude: latitude,
-                longitude: longitude,
-                apiKey: apiKey
+                longitude: longitude
             )
-            if Task.isCancelled { return }
+            
+            guard !Task.isCancelled else { return }
+            
             cityName = forecast.cityName
             days = forecast.days
             unitSymbol = forecast.unitSymbol
@@ -50,7 +65,7 @@ final class ForecastLoader {
     }
 }
 
-private enum OpenWeatherAPIKey {
+ enum OpenWeatherAPIKey {
     private static let placeholder = "YOUR_OPENWEATHERMAP_API_KEY"
 
     static var current: String? {
@@ -67,7 +82,7 @@ private enum OpenWeatherAPIKey {
     }
 }
 
-private enum OpenWeatherClient {
+ enum OpenWeatherClient {
     struct Forecast {
         let cityName: String
         let days: [DailyForecast]
@@ -263,7 +278,7 @@ private struct ErrorBody: Decodable {
     let message: String?
 }
 
-private enum WeatherServiceError: LocalizedError {
+ enum WeatherServiceError: LocalizedError {
     case invalidURL
     case invalidResponse
     case rejectedKey

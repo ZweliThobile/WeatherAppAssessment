@@ -7,18 +7,31 @@
 import CoreLocation
 import Observation
 
+protocol LocationProvider: AnyObject {
+    var delegate: (any CLLocationManagerDelegate)? { get set }
+    var authorizationStatus:CLAuthorizationStatus { get }
+    var desiredAccuracy: CLLocationAccuracy { get set }
+    func requestWhenInUseAuthorization()
+    func requestLocation()
+}
+
+extension CLLocationManager: LocationProvider {}
+
+@MainActor
 @Observable
 final class LocationManager: NSObject, CLLocationManagerDelegate {
-    private let manager = CLLocationManager()
+    private let manager : any LocationProvider
     
     private(set) var location: CLLocation?
     private(set) var isLocating = false
     private(set) var message = "User Location"
     
-    override init() {
+    init(manager: any LocationProvider = CLLocationManager()) {
+        self.manager = manager
         super.init()
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        self.manager.delegate = self
+        self.manager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
     func requestCurrentLocation(){
@@ -31,7 +44,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
             fetchLocation()
         case .denied, .restricted:
             isLocating = false
-            message = ""
+            message = "Location denied."
         @unknown default:
             isLocating = false
         }
@@ -68,7 +81,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    private func handleAuthorizationChange(_ status: CLAuthorizationStatus){
+    func handleAuthorizationChange(_ status: CLAuthorizationStatus){
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             fetchLocation()

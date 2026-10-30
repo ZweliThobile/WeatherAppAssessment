@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var location = LocationManager()
-    @State private var forecastLoader = ForecastLoader()
+    @State private var forecastLoader = ForecastLoader(
+        service: OpenWeatherForecastProvider()
+    )
 
     var body: some View {
         ZStack {
